@@ -1,3 +1,34 @@
+;;; keymap-suggest.el --- Let emacs suggest you which keys to press
+
+;; Copyright (C) 2013 Victor Borja
+
+;; Author: Victor Borja <vic.borja@gmail.com>
+;; Version: 0.1
+;; URL: https://github.com/vic/keymap-suggest.el
+;; Keywords: convenience keymap bindings
+
+;; Keymap Suggest is free software; you can redistribute it and/or modify it
+;; under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 3, or (at your option)
+;; any later version.
+;;
+;; Control mode is distributed in the hope that it will be useful, but WITHOUT
+;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+;; or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
+;; License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with Keymap Suggest.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; Let emacs suggest you which keys you should press
+;; dependening on your current command input.
+;; No need to memorize emacs keymaps anymore.
+;; For example if you just type C-c emacs will suggest which keys
+;; you can use in that keymap.
+
+;;; Code:
 
 (defvar keymap-suggest:interval 1
   "Suggest you a key if emacs is idle this number of seconds.
@@ -41,7 +72,6 @@
              (keymap-suggest:format-keymap keymap))))
 
 (defun keymap-suggest:suggest (prefix keymap)
-  (message (format "%s" keymap))
   (let (message-log-max)
     (message (keymap-suggest:message prefix keymap))))
 
@@ -64,5 +94,14 @@
 (defun keymap-suggest:disable nil
   (cancel-timer keymap-suggest:timer))
 
+;;;###autoload
+(define-minor-mode keymap-suggest-mode
+  "Let Emacs suggest you which keys to press.
+
+Just type an incomplete command like `C-c` or `C-x` or any other
+incomplete key binding and let emacs give you hints on what to press
+next."
+  nil nil nil
+  (if keymap-suggest-mode (keymap-suggest:enable) (keymap-suggest:disable)))
 
 (provide 'keymap-suggest)
