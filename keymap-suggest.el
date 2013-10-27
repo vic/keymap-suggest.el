@@ -36,7 +36,10 @@
    Keymap Suggest only displays suggestions if emacs is currently
    waiting for you to complete a key sequence and emacs has been
    idle for this number (or fraction) of seconds waiting for you to
-   type something.")
+   type something.
+
+   Note that if you change this value, you need to disable and
+   re-enable keymap-suggest.")
 
 (defvar keymap-suggest:timer nil)
 
