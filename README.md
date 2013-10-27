@@ -39,7 +39,7 @@ Usage
 =====
 
 ```elisp
-(keymap-suggest-mode 1)
+(keymap-suggest-mode)
 ```
 
 
@@ -48,5 +48,5 @@ Customization
 
 You can set the `keymap-suggest:interval` variable to the number (or fraction) of seconds
 after which emacs should present suggestions. The default value is 1 second.
-
+Note that if you change this value you need to disable an re-enable `keymap-suggest-mode`
 
