@@ -23,8 +23,17 @@ example `f`, and just pressing `f` will execute the `find-file` command.
 Installation
 ============
 
-Install this package using MELPA or el-get.
+Install with `package.el` from [MELPA](http://melpa.milkybox.net) or [Marmalade](http://marmalade-repo.org)
 
+```elisp
+M-x package-install RET keymap-suggest RET
+```
+
+Or with [el-get](https://github.com/dimitri/el-get)
+
+```elisp
+(el-get 'sync 'keymap-suggest)
+```
 
 Usage
 =====
