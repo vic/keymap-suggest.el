@@ -1,3 +1,5 @@
+Use the excellent [guide-key](https://github.com/kai2nenobu/guide-key) instead.
+
 keymap-suggest.el
 =================
 
